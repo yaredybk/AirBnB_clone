@@ -66,9 +66,4 @@ class BaseModel:
             }
 
     def __setitem__(self, key, value):
-        allowedAttr = ("id", "created_at", "updated_at")
-
-        if key in allowedAttr:
-            setattr(self, key, value)
-        else:
-            raise KeyError(f"'{key}' is not a valid attribute")
+        setattr(self, key, value)
