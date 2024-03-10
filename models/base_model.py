@@ -2,7 +2,7 @@
 # defines all common attributes/methods for other classes
 
 import uuid
-import datetime
+from datetime import datetime
 
 
 class BaseModel:
@@ -15,12 +15,24 @@ class BaseModel:
         updated_at(datetime): date of instance last update
     """
 
-    def __init__(self):
-        """initializes a new BaseModel instance"""
+    def __init__(self, *args, **kwargs):
+        """initializes a new BaseModel instance
+        if **kwargs are provided each key,value set will be an attribute,value
+        otherwise inialize with new id
+        """
 
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = datetime.datetime.now()
+        if kwargs:
+            for key, value in kwargs.items():
+                if key != "__class__":
+                    self[key] = value
+            if self.created_at:
+                self.created_at = datetime.fromisoformat(self.created_at)
+            if self.updated_at:
+                self.updated_at = datetime.fromisoformat(self.updated_at)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def __str__(self):
         """print a string representation of this instance of the class"""
@@ -33,7 +45,7 @@ class BaseModel:
         the current datetime
         """
 
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         """
@@ -41,7 +53,22 @@ class BaseModel:
         __dict__ of the instance
         """
 
-        tmp = self.__dict__
-        tmp.__class__ = "BaseModel"
-        tmp.created_at = datetime.isoformat(self.created_at)
-        tmp.updated_at = datetime.isoformat(self.updated_at)
+        tmp = {}
+        for key, value in self.__dict__.items():
+            if not key.startswith('_'):
+                tmp[key] = value
+
+        return {
+            **tmp,
+            "__class__": self.__class__.__name__,
+            "created_at": self.created_at.isoformat(),
+            "updated_at": self.updated_at.isoformat()
+            }
+
+    def __setitem__(self, key, value):
+        allowedAttr = ("id", "created_at", "updated_at")
+
+        if key in allowedAttr:
+            setattr(self, key, value)
+        else:
+            raise KeyError(f"'{key}' is not a valid attribute")
