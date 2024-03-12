@@ -17,7 +17,8 @@ class BaseModel:
     """
 
     def __init__(self, *args, **kwargs):
-        """initializes a new BaseModel instance
+        """
+        initializes a new BaseModel instance
         if **kwargs are provided each key,value set will be an attribute,value
         otherwise inialize with new id
         """
