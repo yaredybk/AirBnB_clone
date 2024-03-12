@@ -2,15 +2,15 @@
 #entry point of the command interpreter:
 
 import cmd
+
+from models import storage
 from models.base_model import BaseModel
-from models.__init__ import storage
 
 class HBNBCommand(cmd.Cmd):
     """
     a command interpreter
     """
 
-    intro = "welcome to hbnb console"
     prompt = "(hbnb)"
 
     def do_quit(self, arg):
