@@ -2,6 +2,7 @@
 """store dictionary to a file and retrive it"""
 
 import json
+from models.base_model import BaseModel
 
 class FileStorage:
     """
@@ -49,11 +50,11 @@ class FileStorage:
 
         try:
             with open(self.__file_path, 'r') as file:
-                dict1 = json.loads(file.read(file))
+                dict1 = json.load(file)
 
                 for obj in dict1.values():
-                    cls_name = dict1["__class__"]
+                    cls_name = obj["__class__"]
                     del obj["__class__"]
-                    self.new(eval(class_name)(**obj))
+                    self.new(eval(cls_name)(**obj))
         except Exception as err:
             pass
