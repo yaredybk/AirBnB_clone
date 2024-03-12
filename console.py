@@ -21,6 +21,11 @@ class HBNBCommand(cmd.Cmd):
         """exits the program. you can also use 'quit'"""
         return True
 
+    def emptyline(self):
+        """ignore impty line"""
+
+        pass
+
     @staticmethod
     def no_class(arg):
         """checks if classname exists"""
@@ -51,15 +56,20 @@ class HBNBCommand(cmd.Cmd):
         the class name and id. Ex: $ show BaseModel 1234-1234-1234.
         """
 
+        tmp = storage.all()
         if not arg:
             self.no_class(arg)
             return
         args = arg.split()
 
-        if (no_class(args[0])):
+        if (self.no_class(args[0])):
             return
-        if not args[1]:
+        elif len(args) == 1:
             print("** instance id missing **")
+        elif f"{args[0]}.{args[1]}" not in tmp:
+            print("** no instance found **")
+        else:
+            print(tmp[f"{args[0]}.{args[1]}"])
 
 
 if __name__ == '__main__':
