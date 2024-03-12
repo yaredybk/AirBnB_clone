@@ -46,6 +46,7 @@ class TestBaseModel_init(unittest.TestCase):
         self.assertNotEqual(m1.__class__, "WrongBaseModel")
         self.assertTrue(hasattr(m3, "id"))
 
+
 class TestBaseModel_methods(unittest.TestCase):
     """unit tests for base model methods"""
 
@@ -60,4 +61,4 @@ class TestBaseModel_methods(unittest.TestCase):
         tmp = self.base1.to_dict()
         self.assertTrue(hasattr(tmp, "__class__"))
         self.assertEqual("BaseModel", tmp["__class__"])
-        self.assertEqual(type(tmp["created_at"]),str)
+        self.assertEqual(type(tmp["created_at"]), str)

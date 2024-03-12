@@ -4,6 +4,7 @@
 import json
 from models.base_model import BaseModel
 
+
 class FileStorage:
     """
     serializes instances to a JSON file and deserializes JSON file to instance
@@ -31,7 +32,7 @@ class FileStorage:
 
         tmp = {}
 
-        for key,value in self.__objects.items():
+        for key, value in self.__objects.items():
             tmp[key] = self.__objects[key].to_dict()
         content = json.dumps(tmp)
 
