@@ -21,6 +21,15 @@ class HBNBCommand(cmd.Cmd):
         """exits the program. you can also use 'quit'"""
         return True
 
+    def do_help(self, arg):
+        """help doc"""
+
+        print("""
+Documented commands (type help <topic>):
+========================================
+EOF  create  help  quit  show
+""")
+
     def emptyline(self):
         """ignore impty line"""
 
