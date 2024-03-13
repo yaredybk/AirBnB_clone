@@ -12,6 +12,15 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb)"
+    __allowed_classes = {
+            "BaseModel",
+            "User",
+            "State",
+            "City",
+            "Place",
+            "Amenity",
+            "Review"
+            }
 
     def do_quit(self, arg):
         """exits the program. you can also use 'EOF'"""
@@ -33,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return (True)
-        if arg != "BaseModel":
+        if arg not in self.__allowed_classes:
             print("** class doesn't exist **")
             return (True)
         return (False)
