@@ -1,6 +1,6 @@
 header{
         height:70px;
         width:100%;
-	border-bottom:1px #CCCCCC;
+	border-bottom:solid 1px #CCCCCC;
 	background: #FFFFFF url("../images/logo.png") 20px center no-repeat;
 }
