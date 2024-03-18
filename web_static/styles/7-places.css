@@ -4,6 +4,7 @@
 }
 .places h1{
 	width:100%;
+	margin:0px;
 	font-size:30px;
 }
 .places article{
@@ -16,4 +17,5 @@
 .places article h2{
 	font-size:30px;
 	text-align:center;
+	margin:0px;
 }
