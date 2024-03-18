@@ -57,6 +57,7 @@ ul{
 	margin:0px;
 	box-sizing:border-box;
 	position:absolute;
+	top:100%;
 }
 .filters div:hover .popover{
 	display:block;
