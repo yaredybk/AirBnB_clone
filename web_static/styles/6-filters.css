@@ -44,9 +44,17 @@ button:hover{
 	font-size:14px;
 	margin-top:0px;
 }
-.filters ul{
-	display:hidden;
+.filters .popover{
+	display:none;
+	background-color:#FAFAFA;
+	width:25%;
+	border:solid 1px #DDDDDD;
+	border-radius:4px;
+	list-style-type:none;
 }
-.filters:hover ul{
+.filters div:hover .popover{
 	display:block;
+}
+.popover h2{
+	font-size:16px;
 }
