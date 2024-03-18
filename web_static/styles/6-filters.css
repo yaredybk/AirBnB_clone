@@ -31,6 +31,7 @@ button:hover{
 	width:25%;
 	display:grid;
 	justify-content:center;
+	position:relative;
 }
 .filters .locations{
 	border-right:solid #DDDDDD 1px;
@@ -44,13 +45,18 @@ button:hover{
 	font-size:14px;
 	margin-top:0px;
 }
+ul{
+	list-style-type:none;
+}
 .filters .popover{
 	display:none;
 	background-color:#FAFAFA;
 	width:100%;
 	border:solid 1px #DDDDDD;
 	border-radius:4px;
-	list-style-type:none;
+	margin:0px;
+	box-sizing:border-box;
+	position:absolute;
 }
 .filters div:hover .popover{
 	display:block;
