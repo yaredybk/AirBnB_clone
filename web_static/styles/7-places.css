@@ -2,7 +2,7 @@
 	display:flex;
 	flex-wrap:wrap;
 }
-.places .h1{
+.places h1{
 	width:100%
 	font-size:30px;
 }
