@@ -7,6 +7,7 @@ section.filters{
 	display:flex;
 	align-items:center;
 	position:relative;
+	box-sizing:border-box;
 }
 
 button{
