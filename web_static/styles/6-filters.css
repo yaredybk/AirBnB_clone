@@ -44,4 +44,9 @@ button:hover{
 	font-size:14px;
 	margin-top:0px;
 }
-
+.filters ul{
+	display:hidden;
+}
+.filters:hover ul{
+	display:block;
+}
