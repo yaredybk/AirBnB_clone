@@ -29,6 +29,9 @@ button:hover{
 .filters .amenities{
 	height:100%;
 	width:25%;
+	text-align:center;
+}
+.filters .locations{
 	border-right:solid #DDDDDD 1px;
 }
 .filters h3{
